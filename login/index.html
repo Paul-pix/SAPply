@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>
+            Login
+        </title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" lang="javascript" src="script.js"></script>
+
+    </head>
+    <body class="text-center">
+        <form action="login.php" class="form-signin" method="POST" name="loginForm" onsubmit="return validaForm()"> <!--php è riferimeto alla pagina a cui verranno sepditi i dati da processare, metodo e nome della form--> 
+        <img class="mb-4" src="../logo/logo_small_icon_only.png" alt=""/>                              <!--name non utilizzato come identivi unici, ma come riferimento a questa specifica form -->
+        <h1 class="h3 mb-3">Esegui login</h1>                                                          <!--per identificativi unici si usa id-->
+        <input type="email" name="inputEmail" required placeholder="Email address" autofocus/>         <!-- tipo email controlla se ci sta almeno una @-->
+        </br>
+        <input type="password" name="inputPassword" required placeholder="Password"/>
+        <div id="divRemember" class="checkbox mb-3">
+            <input id="checkRemember" type="checkbox" name="remember"/>
+            <label for="remember">Ricordami</label>
+        </div>
+        <button class="btn btn-lg btn-primary" name="loginButton" type="submit" style="background-color: red;color:whitesmoke;">Accedi</button>
+        </form>
+     </body>
+</html> 
