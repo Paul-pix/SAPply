@@ -1,9 +1,9 @@
 function validaForm(){
     if(document.loginForm.remember.checked){
-        alert("Salvato per i prossimi login");
+        alert("Hai scelto di ricordarti per i prossimi accessi");
     }
     else{
-    alert("Hai deciso di non ricordarti per i prossimi login");s
+    alert("Hai scelto di non ricordarti per i prossimi accessi");s
     }
 
 }
