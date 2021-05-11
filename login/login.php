@@ -9,8 +9,8 @@
                 }
                 else{
                     $email=$_POST['inputEmail'];                //salvo inputEmail nella variabile email
-                    $q1="select * from utente where email=$1";      //creo una query
-                    $result=pg_query_params($dbconn,$q1,array($email));     //databse,query creata,array di parametri e associo a $1
+                    $q1="select * from utente where email=$1";      //creo una query per verificare se un utente esiste con questa email
+                    $result=pg_query_params($dbconn,$q1,array($email));     //pg_query_params ( resource $connection = ? , string $query , array $params ) : resource|false
                     if(!($line=pg_fetch_array($result,null,PGSQL,ASSOC))){
                         echo "<h1> You are not a registered user </h1> <a href=../registrazione/index.html>
                         Click here to register</a>";
