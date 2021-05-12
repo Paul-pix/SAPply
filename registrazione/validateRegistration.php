@@ -19,7 +19,7 @@
                     $nome=$_POST['inputName'];
                     $cognome=$_POST['inputSurname'];
                     $cap=$_POST['cap'];
-                    $password=md5($_POST['inputPassword']);
+                    $password=md5($_POST['inputPassword']);                                       //md5 crea stringa pseudocasuale
                     $q2="insert into utente values($1,$2,$3,$4,$5)";                              //inserisce nel database in ordine
                     $data=pg_query_params($dbconn,$q2,array($email,$nome,$cognome,$cap,$password)); //dà un valore di ritorno booleano,ordine importante nell'array, stesso ordine nel database
                 if($data){                                                                  //se true
