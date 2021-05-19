@@ -23,10 +23,9 @@
                     $q2="insert into utente values($1,$2,$3,$4,$5)";                              //inserisce nel database in ordine
                     $data=pg_query_params($dbconn,$q2,array($email,$nome,$cognome,$cap,$password)); //dà un valore di ritorno booleano,ordine importante nell'array, stesso ordine nel database
                 if($data){                                                                  //se true
-                    //header("Location:registrationCompleted.html");
-                    echo "<h1>Registration is completed.
+                     echo "<h1>Registration is completed.
                     Start using the website </br></h1>";
-                    echo "<a href=../Welcome.php?name=$nome> Premi qui </a> per iniziare ad utilizzare il sito web"; // dopo il ? ho coppie parametro=valore 
+                    echo "<a href=../login/index.html> Premi qui </a> per iniziare ad utilizzare il sito web"; // dopo il ? ho coppie parametro=valore 
                 }               
              }
             }

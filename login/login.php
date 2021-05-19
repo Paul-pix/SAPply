@@ -23,8 +23,7 @@
                             echo "<h1> The password is erroneous</h1> <a href=index.html>Click here to login </a>";
                         }
                         else{
-                            $nome=$line['nome'];
-                            echo "<a href=../Welcome.php?name=$nome>Premi qui </a> per iniziare ad utilizzare il SAPply";
+                            header('Location:../home/index.html');
                         }
                     }
                 }
