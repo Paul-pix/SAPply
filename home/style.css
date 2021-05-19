@@ -1,34 +1,23 @@
-html,
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  overflow-x: hidden;
-  margin:0px;
- 
- 
+.parent{
+  display: grid;
+  grid-template-columns: minmax(150px,25%) auto;
+  
   
 }
+
 .leftSide {
   background-color:grey;
-  border: 2px solid black;
-  overflow:hidden;
-  left:0;
-  text-align: center;
-  height:1000px;
+  place-items: center;
+  
   
   
  }
  .rightSide{
   background-color:whitesmoke;
-  color: white;
   border: 2px solid black;
-  overflow:hidden;
-  right:0;
-  text-align: center;
+  display:grid;
+  place-items: center;
+
+  
  }
 
-.centered img {
-  width: 150px;
-  border-radius: 50%;
-}
