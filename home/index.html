@@ -1,27 +1,47 @@
 <html>
     <head>
-        <title>Home</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1"/>
-       <!-- <script type="text/javascript" src="../vuejs/vue.min.js">-->
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>  <!--libreria fare lo split-->
-        <link rel="stylesheet" type="text/css" href="style.css"/>  <!--collegato a css per colore e stile-->
-        <script type="text/javascript" lang="javascript" src="script.js">
-        </script>
+        <title>SAPply - Selezione zaino</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" type="image/png" href="../img/SAPply_logo_32x32.png" sizes="32x32">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" lang="javascript" src="script.js"></script>
+        
+        
     </head>
-    <body>
-        <div class="parent">
-            <div class="leftSide" contenteditable>
-                <img class="mb-4" src="../logo/SAPply_logo_256x256.png" alt="" />
+    <body class="text-center">
+        <div class="container">
+            <div class="left">
+                <br/><br/><br/>
+                     <br/><br/>
+
+                <div id="reader" style="display: inline-block;"></div>
+                <script type="text/javascript" lang="javascript" src="html5-qrcode.min.js"></script>
+                <script> var html5QrcodeScanner = new Html5QrcodeScanner(
+                    "reader", { fps: 10, qrbox: 250 });
+                html5QrcodeScanner.render(onScanSuccess); </script>
+                <!--<img class="mb-4" src="../images/logo/SAPply_logo_512x512.png" alt="" width=80%/>-->
+                
+                
             </div>
-           
-            <div class="rightSide " contenteditable>
-               <form action="codiceCheck.php"  method="POST" name="codiceForm" onsubmit="return validaCodice()">
-                    <h4 style="color:black">Inserisci zaino da gestire</h4>
-                    <input type="text" name="codiceZaino" class="form-control" placeholder="Codice Zaino" size="2"  autofocus required   />
-                    <button class="btn btn-lg btn-primary btn-block " name="codiceButton" type="submit" style="background-color:grey ;color:whitesmoke">Gestisci</button>
+            <div class="right">
+
+                <img class="mb-4" src="../images/logo/SAPply_logo_extended_566x256.png" alt=""/>
+                <button type="button" class="btn btn-primary biggerbtn" "><b>Scansiona un tag QR</b></button>
+                <img class="mb-4" src="../images/icons/qr_icon.png" alt=""/>
+                <p class="text-center text"><b>Oppure immetti il numero dello zaino</b></p>
+                <form action="codiceCheck.php"  method="POST" name="codiceForm" onsubmit="return validaCodice()">
+                    <input type="text" name="codiceZaino" class="form-group" placeholder="Codice Zaino" size="2"  autofocus required   />
+                    <button class="btn btn-sm btn-primary btn-block " name="codiceButton" type="submit" style="background-color:#ff5555 ;color:whitesmoke;">Gestisci</button>
+                    <a href="../login/index.html" role="button" class="btn btn-primary btn-lg logout" style="background-color:#ff5555 ;color:whitesmoke">  
+                        Logout</a>
                 </form>
+                
             </div>
         </div>
+        
     </body>
+    
 </html>
