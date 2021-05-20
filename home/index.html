@@ -13,10 +13,13 @@
     </head>
     <body class="text-center">
         <div class="container">
+        
+            
             <div class="left">
                 <br/><br/><br/>
-                     <br/><br/>
-
+                
+<a href="../login/index.html" role="button" class="btn btn-primary btn-lg logout " style="background-color:white ;color:#ff5555">  
+                            Logout</a>
                 <div id="reader" style="display: inline-block;"></div>
                 <script type="text/javascript" lang="javascript" src="html5-qrcode.min.js"></script>
                 <script> var html5QrcodeScanner = new Html5QrcodeScanner(
@@ -27,16 +30,16 @@
                 
             </div>
             <div class="right">
-
-                <img class="mb-4" src="../images/logo/SAPply_logo_extended_566x256.png" alt=""/>
+                
+               <img class="mb-4" src="../images/logo/SAPply_logo_extended_566x256.png" alt=""/>
+               
                 <button type="button" class="btn btn-primary biggerbtn" "><b>Scansiona un tag QR</b></button>
                 <img class="mb-4" src="../images/icons/qr_icon.png" alt=""/>
                 <p class="text-center text"><b>Oppure immetti il numero dello zaino</b></p>
                 <form action="codiceCheck.php"  method="POST" name="codiceForm" onsubmit="return validaCodice()">
                     <input type="text" name="codiceZaino" class="form-group" placeholder="Codice Zaino" size="2"  autofocus required   />
                     <button class="btn btn-sm btn-primary btn-block " name="codiceButton" type="submit" style="background-color:#ff5555 ;color:whitesmoke;">Gestisci</button>
-                    <a href="../login/index.html" role="button" class="btn btn-primary btn-lg logout" style="background-color:#ff5555 ;color:whitesmoke">  
-                        Logout</a>
+                    
                 </form>
                 
             </div>

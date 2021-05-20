@@ -13,7 +13,7 @@
                 $result=pg_query_params($dbconn,$q1,array($email));
                 if($line=pg_fetch_array($result,null,PGSQL_ASSOC)){                              //se è una mail già registrata manda messaggio di errore
                     echo "<h1> Sorry, you are already a registered user </h1>
-                    <a href=../login/index.html Click here to login </a>";
+                    <a href=../login/index.html>Click here to login </a>";
                 }
                 else{                                                                             //inseriamo in utente
                     $nome=$_POST['inputName'];
