@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <title>SAPply - Selezione zaino</title>
@@ -18,8 +22,7 @@
             <div class="left">
                 <br/><br/><br/>
                 
-<a href="../login/index.html" role="button" class="btn btn-primary btn-lg logout " style="background-color:white ;color:#ff5555">  
-                            Logout</a>
+
                 <div id="reader" style="display: inline-block;"></div>
                 <script type="text/javascript" lang="javascript" src="html5-qrcode.min.js"></script>
                 <script> var html5QrcodeScanner = new Html5QrcodeScanner(
@@ -30,7 +33,8 @@
                 
             </div>
             <div class="right">
-                
+                <a href="../login/index.html" role="button" class="btn btn-primary btn-lg logout " style="background-color:white ;color:#ff5555">  
+                            Logout</a>
                <img class="mb-4" src="../images/logo/SAPply_logo_extended_566x256.png" alt=""/>
                
                 <button type="button" class="btn btn-primary biggerbtn" "><b>Scansiona un tag QR</b></button>

@@ -12,11 +12,11 @@
                     $q1="select * from zaino where codice=$1";      //creo una query per verificare se un zaino esiste con questo codice
                     $result=pg_query_params($dbconn,$q1,array($codice));     //pg_query_params ( resource $connection = ? , string $query , array $params ) : resource|false
                     if(!($line=pg_fetch_array($result,null,PGSQL_ASSOC))){
-                        echo "<h1> Lo zaino non è presente nel database  </h1> <br> <a href=index.html>
+                        echo "<h1> Lo zaino non è presente nel database  </h1> <br> <a href=index.php>
                         Riprova</a>";
                     }
                     else{
-                           header('Location:../panoramica/index.html');
+                           header('Location:../panoramica/index.php');
                         }
                         
                         }

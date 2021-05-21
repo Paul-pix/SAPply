@@ -23,7 +23,7 @@
                             echo "<h1> The password is erroneous</h1> <a href=index.html>Click here to login </a>";
                         }
                         else{
-                            header('Location:../home/index.html');
+                            header('Location:../home/index.php');
                         }
                     }
                 }

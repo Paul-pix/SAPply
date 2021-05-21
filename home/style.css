@@ -54,6 +54,6 @@ body {
 
 .logout{
     
-    position:absolute; top:10; right:10;
+    position:fixed; top:20px; right: 20px;
 }
 

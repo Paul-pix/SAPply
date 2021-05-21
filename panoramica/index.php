@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <title>SAPply - Gestione zaino</title>
@@ -50,7 +54,7 @@
                 <h1>Preleva</h1>
             
                 <form action="panoramica.php" class="form-signin" method="POST" name="prelevaForm" onSubmit="return prelevaForm()">  
-                    <input type="text" name="inputName" class="form-control" placeholder="Name" autofocus required/>
+                    <input type="text" name="inputName" class="form-control" placeholder="Name"  required/>
                     <input type="date" name="inputDate" class="form-control" required/>
                     
                 </form>
