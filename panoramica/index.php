@@ -1,7 +1,7 @@
 <?php
     session_start();
 ?>
-<!DOCTYPE html>
+
 <html>
     <head>
         <title>SAPply - Gestione zaino</title>
@@ -20,10 +20,10 @@
 
                 <div class="details">
                     <img src="../images/logo/SAPply_logo_128x128.png" alt="">
-                    <h1>Zaino</h1>
+                    <h1>Zaino <?php echo $_SESSION['zaino'] ?></h1>
                 </div>
                 
-                <nav id="navbar" class="nav-menu navbar">
+                <nav id="navbar" class="nav-menu navbar text-center">
                     <ul>
                         <li><a href="#panoramica" class="nav-link scrollto active"><i class="bx"></i> <span>Panoramica</span></a></li>
                         <li><a href="#contenuto" class="nav-link scrollto active"><i class="bx"></i> <span>Contenuto</span></a></li>
@@ -33,12 +33,14 @@
                     </ul>
                 </nav>
                 
-            </div>
+               
+               <a href="../home/index.php" role="button" class="btn btn-primary btn-lg foot " style="background-color:white ;color:#ff5555">  
+                            Indietro</a>
+            </div> 
         </header>
 
-        <div class="container-right">
-
-            <section id="panoramica" class="panoramica section">
+        <div class="container-right text-center">
+                <section id="panoramica" class="panoramica section" autofocus>
                 <div><h1>Panoramica</h1></div>
                 <!--ultimo volontario che ha usato lo zaino,nome zaino,data ultimo utilizzo,rifornito-->
 

@@ -1,5 +1,12 @@
 <?php
     session_start();
+    
+// remove all session variables
+session_unset();
+
+// destroy the session
+session_destroy();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,18 +44,22 @@
                             Logout</a>
                <img class="mb-4" src="../images/logo/SAPply_logo_extended_566x256.png" alt=""/>
                
-                <button type="button" class="btn btn-primary biggerbtn" "><b>Scansiona un tag QR</b></button>
+                <button type="button" class="btn btn-primary biggerbtn" ><b>Scansiona un tag QR</b></button>
                 <img class="mb-4" src="../images/icons/qr_icon.png" alt=""/>
                 <p class="text-center text"><b>Oppure immetti il numero dello zaino</b></p>
                 <form action="codiceCheck.php"  method="POST" name="codiceForm" onsubmit="return validaCodice()">
                     <input type="text" name="codiceZaino" class="form-group" placeholder="Codice Zaino" size="2"  autofocus required   />
                     <button class="btn btn-sm btn-primary btn-block " name="codiceButton" type="submit" style="background-color:#ff5555 ;color:whitesmoke;">Gestisci</button>
-                    
+
+                   
                 </form>
                 
             </div>
         </div>
         
+                    
+                   
+                  
     </body>
     
 </html>

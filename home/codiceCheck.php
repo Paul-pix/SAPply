@@ -1,4 +1,7 @@
+<?php 
+session_start();?>
 <html>
+
     <head></head>
     <body>
         <?php
@@ -16,11 +19,15 @@
                         Riprova</a>";
                     }
                     else{
+                            
+                            $_SESSION['zaino']=$codice; 
                            header('Location:../panoramica/index.php');
                         }
                         
                         }
                     
+                        
+                           
                 
         ?>
     </body>
