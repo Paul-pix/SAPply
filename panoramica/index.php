@@ -51,7 +51,7 @@
     <div class="container-right  ">
         <section id="panoramica" class="panoramica section centro" autofocus>
             <div>
-                <h1>Panoramica</h1>
+                <h1 class="contenuto section3 centro">Panoramica</h1>
             </div>
             <!--ultimo volontario che ha usato lo zaino,nome zaino,data ultimo utilizzo,rifornito-->
             <?php
@@ -71,17 +71,30 @@
              ?>
 
         </section>
-        <section id="contenuto" class="contenuto section centro">
+        <section id="contenuto" class="contenuto section3 centro">
             <div>
-                <h1>Contenuto</h1>
+                <h1 class="section3 centro">Contenuto</h1>
             </div>
-            <caption> Elenco:</caption>
+            
 
             <?php
              
              $conn=pg_connect("host=localhost port=5432 dbname=SAP user=postgres password=admin")
              or die('Could not connect: '. pg_last_error());
+             echo"<h5 >Presidi</h5>";
+             echo "</table>";
              
+             $cod=$_SESSION['zaino'];
+             $sql=" SELECT elemento,quantità from presidi where codice='$cod'";
+             $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
+             echo "<table class='centro'>";
+             echo "<tr><th>Elemento</th><th>Quantità</th></tr>";
+             while($row=pg_fetch_array($queryRecords,null,PGSQL_ASSOC)){
+                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']."</td></tr>";
+             }
+            echo "</table>";
+            echo "</br></br>";
+             echo"<h5 >Fialario</h5>";
              $cod=$_SESSION['zaino'];
              $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod'";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
@@ -90,8 +103,8 @@
              while($row=pg_fetch_array($queryRecords,null,PGSQL_ASSOC)){
                   echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$row['scadenza']."</td></tr>";
              }
-             echo "</table>"
-             ?>
+             echo "</table>";
+           ?>   
 
 
         </section>
@@ -100,7 +113,7 @@
                 <h1>Aggiorna inventario</h1>
             </div>
         </section>
-        <section id="preleva" class="preleva section">
+        <section id="preleva" class="preleva section2">
             <div class="center">
                 <h1>Preleva</h1>
                 </br>
@@ -116,9 +129,15 @@
                     style="background-color:#ff5555 ;color:whitesmoke">Preleva</button></form>
             </div>
         </section>
-        <section id="consegna" class="consegna section centro">
-            <div>
+        <section id="consegna" class="consegna section2 ">
+            <div class="center">
                 <h1>Consegna</h1>
+                <form action="panoramica2.php" class="form-signin" method="POST" name="consegnaForm"
+                    onSubmit="return consegnaForm()">
+                    <input type="date" name="inputDate2" class="form-control" required />
+                    </br>   
+                <button class="btn btn-lg btn-primary btn-block" name="consegnaButton" type="submit"
+                    style="background-color:#ff5555 ;color:whitesmoke">Consegna</button></form>
             </div>
         </section>
     </div>

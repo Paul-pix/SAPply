@@ -55,7 +55,21 @@ body {
     margin-top: 5%;
     margin-right: 5%;
     width: 80%;
-    height: 100vh;
+    height: 70vh;
+    
+}
+.section2 {
+    margin-top: 5%;
+    margin-right: 5%;
+    width: 80%;
+    height: 50vh;
+    
+}
+.section3 {
+    margin-top: 5%;
+    margin-right: 5%;
+    width: 80%;
+    height: auto;
     
 }
 
@@ -76,7 +90,7 @@ display:block;
 
 table {
     border: 2px solid red;
-    background-color: #ff5555;
+    background-color:whitesmoke;
     table-layout: auto;
     width: 1000px;
 
@@ -84,6 +98,7 @@ table {
 
 th {
     border-bottom: 5px solid #000;
+    background-color:#ff5555;
 }
 
 td {
@@ -94,5 +109,12 @@ td {
 
 .centro {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 100px;
+}
+h5{
+  
+    width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: 100px;
 }
