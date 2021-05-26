@@ -40,16 +40,19 @@ session_destroy();
                 
             </div>
             <div class="right">
-                <a href="../login/index.html" role="button" class="btn btn-primary btn-lg logout " style="background-color:white ;color:#ff5555">  
-                            Logout</a>
+                
                <img class="mb-4" src="../images/logo/SAPply_logo_extended_566x256.png" alt=""/>
                
                 <button type="button" class="btn btn-primary biggerbtn" ><b>Scansiona un tag QR</b></button>
                 <img class="mb-4" src="../images/icons/qr_icon.png" alt=""/>
                 <p class="text-center text"><b>Oppure immetti il numero dello zaino</b></p>
-                <form action="codiceCheck.php"  method="POST" name="codiceForm" onsubmit="return validaCodice()">
+                <form class="form-inline" action="codiceCheck.php"  method="POST" name="codiceForm" onsubmit="return validaCodice()">
                     <input type="text" name="codiceZaino" class="form-group" placeholder="Codice Zaino" size="2"  autofocus required   />
                     <button class="btn btn-sm btn-primary btn-block " name="codiceButton" type="submit" style="background-color:#ff5555 ;color:whitesmoke;">Gestisci</button>
+                    </br></br> 
+                </br>
+                <a href="../login/index.html" role="button" class="btn btn-primary btn-lg  " style="background-color:#333 ;color:whitesmoke">  
+                            Logout</a>
 
                    
                 </form>

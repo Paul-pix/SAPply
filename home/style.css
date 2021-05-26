@@ -27,7 +27,7 @@ body {
 }
 
 .container .right{
-    margin-top: 10%;
+    margin-top: 5%;
     float: right;
     width: 50%;
     height: 100%;
@@ -48,12 +48,8 @@ body {
 }
 
 .container .right .text{
-    margin-top: 10%;
+   
     
 }
 
-.logout{
-    
-    position:fixed; top:20px; right: 20px;
-}
 

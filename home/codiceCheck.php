@@ -21,7 +21,7 @@ session_start();?>
                     else{
                             
                             $_SESSION['zaino']=$codice; 
-                           header('Location:../panoramica/index.php');
+                           header('Location:../main/index.php');
                         }
                         
                         }
