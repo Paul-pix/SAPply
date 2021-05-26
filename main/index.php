@@ -32,7 +32,7 @@
             </br>
             </br>
             <div>
-                <img src="../images/logo/SAPply_logo_128x128.png" alt="">
+                <img src="../logo/SAPply_logo_256x256.png" alt="">
                 <h1>Zaino <?php echo $_SESSION["zaino"] ?></h1>
             </div>
             <!--ultimo volontario che ha usato lo zaino,nome zaino,data ultimo utilizzo,rifornito-->
