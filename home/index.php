@@ -41,10 +41,10 @@ session_destroy();
             </div>
             <div class="right">
                 
-               <img class="mb-4" src="../images/logo/SAPply_logo_extended_566x256.png" alt=""/>
+               <img class="mb-4" src="../logo/SAPply_logo_extended_566x256.png" alt=""/>
                
                 <button type="button" class="btn btn-primary biggerbtn" ><b>Scansiona un tag QR</b></button>
-                <img class="mb-4" src="../images/icons/qr_icon.png" alt=""/>
+                <img class="mb-4" src="../logo/icons/qr_icon.png" alt=""/>
                 <p class="text-center text"><b>Oppure immetti il numero dello zaino</b></p>
                 <form class="form-inline" action="codiceCheck.php"  method="POST" name="codiceForm" onsubmit="return validaCodice()">
                     <input type="text" name="codiceZaino" class="form-group" placeholder="Codice Zaino" size="2"  autofocus required   />
