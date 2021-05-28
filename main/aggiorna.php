@@ -35,10 +35,11 @@
              $cod=$_SESSION['zaino'];
              $sql=" SELECT elemento,quantità from presidi where codice='$cod' order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
+            
              echo "<table class='text-center'>";
-             echo "<tr><th>Elemento</th><th>Quantità</th></tr>";
+             echo "<thead><tr><th>Elemento</th><th>Quantità</th><th>Edit</th></tr></thead>";
              while($row=pg_fetch_array($queryRecords,null,PGSQL_ASSOC)){
-                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']."</td></tr>";
+                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']."</td><td><a href='aggiorna.php'?edit class='btn btn-info btn-sm' style='background-color:#ff5555 ;color:whitesmoke'>Edit</a></td></tr>";
              }
             echo "</table>";
             echo "</br></br>";
@@ -47,9 +48,9 @@
              $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
              echo "<table class='centro'>";
-             echo "<tr><th>Elemento</th><th>Quantità</th><th>Scadenza</th></tr>";
+             echo "<tr><th>Elemento</th><th>Quantità</th><th>Scadenza</th><th>Edit</th></tr></thead>";
              while($row=pg_fetch_array($queryRecords,null,PGSQL_ASSOC)){
-                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$row['scadenza']."</td></tr>";
+                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$row['scadenza']."</td><td><a href='aggiorna.php'?edit class='btn btn-info btn-sm' style='background-color:#ff5555 ;color:whitesmoke'>Edit</a></td></tr>";
              }
              echo "</table>";
 
