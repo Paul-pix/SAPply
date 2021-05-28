@@ -20,7 +20,6 @@
         <a href="../home/index.php" class="torna active">Indietro</a>
         <a href="#panoramica">Panoramica</a>
         <a href="#contenuto">Contenuto</a>
-        <a href="#aggiorna">Aggiorna Inventario</a>
         <a href="#preleva/consegna">Preleva - Consegna</a>
 
 
@@ -64,7 +63,11 @@
             
              
              ?>
-
+            <div>
+                <a href="aggiorna.php" role="button" class="btn btn-primary btn-lg  "
+                    style="background-color:#ff555f; ;color:whitesmoke">
+                    Aggiorna Inventario</a>
+            </div>
 
         </section>
         <section id="contenuto" class="section text-center">
@@ -84,7 +87,7 @@
              echo "</table>";
              
              $cod=$_SESSION['zaino'];
-             $sql=" SELECT elemento,quantità from presidi where codice='$cod'";
+             $sql=" SELECT elemento,quantità from presidi where codice='$cod' order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
              echo "<table class='text-center'>";
              echo "<tr><th>Elemento</th><th>Quantità</th></tr>";
@@ -95,7 +98,7 @@
             echo "</br></br>";
              echo"<h5 >Fialario</h5>";
              $cod=$_SESSION['zaino'];
-             $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod'";
+             $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
              echo "<table class='centro'>";
              echo "<tr><th>Elemento</th><th>Quantità</th><th>Scadenza</th></tr>";
@@ -107,14 +110,7 @@
 
 
         </section>
-        <section id="aggiorna" class="section text-center">
-            </br>
-            </br>
-            </br>
-            <div>
-                <h1>Aggiorna inventario</h1>
-            </div>
-        </section>
+
         <section id="preleva/consegna" class="section text-center field">
             <div class="center">
                 </br>
@@ -125,11 +121,11 @@
                 <form action="panoramica.php" class="form-signin form-inline" method="POST" name="prelevaForm"
                     onSubmit="return prelevaForm()">
                     <div class="form-group mx-sm-3 mb-2">
-                    <input type="text" name="inputName" class="form-control" placeholder="Name" required />
-            </div>
+                        <input type="text" name="inputName" class="form-control" placeholder="Name" required />
+                    </div>
                     <button class="btn btn-lg btn-primary btn-block mb-2" name="prelevaButton" type="submit"
-                        style="background-color:#ff5555 ;color:whitesmoke" >Preleva</button>
-                    </form>
+                        style="background-color:#ff5555 ;color:whitesmoke">Preleva</button>
+                </form>
                 </br>
                 </br>
 
