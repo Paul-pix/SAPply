@@ -39,7 +39,8 @@
              echo "<table class='text-center'>";
              echo "<thead><tr><th>Elemento</th><th>Quantità</th><th>Edit</th></tr></thead>";
              while($row=pg_fetch_array($queryRecords,null,PGSQL_ASSOC)){
-                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']."</td><td><a href='aggiorna.php'?edit class='btn btn-info btn-sm' style='background-color:#ff5555 ;color:whitesmoke'>Edit</a></td></tr>";
+                $el=$row['elemento'];
+                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']."</td><td><a href=aggiorna.php?edit=$el class='btn btn-info btn-sm' style='background-color:#ff5555 ;color:whitesmoke'>Edit</a></td></tr>";
              }
             echo "</table>";
             echo "</br></br>";
@@ -50,7 +51,8 @@
              echo "<table class='centro'>";
              echo "<tr><th>Elemento</th><th>Quantità</th><th>Scadenza</th><th>Edit</th></tr></thead>";
              while($row=pg_fetch_array($queryRecords,null,PGSQL_ASSOC)){
-                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$row['scadenza']."</td><td><a href='aggiorna.php'?edit class='btn btn-info btn-sm' style='background-color:#ff5555 ;color:whitesmoke'>Edit</a></td></tr>";
+                 $el=$row['elemento'];
+                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$row['scadenza']."</td><td><a href=aggiorna.php?edit=$el class='btn btn-info btn-sm' style='background-color:#ff5555 ;color:whitesmoke'>Edit</a></td></tr>";
              }
              echo "</table>";
 
