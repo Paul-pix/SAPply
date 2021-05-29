@@ -59,3 +59,7 @@ table {
 .fonts{
   font-size: 20px;
 }
+.btnred{
+  background-color:#ff5555;
+  color:whitesmoke;
+}

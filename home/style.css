@@ -46,6 +46,9 @@ body {
 .container .right .mb-4{
     width: 21%;
 }
-
+.btnred{
+    background-color:#ff5555;
+    color:whitesmoke;
+  }
 
 

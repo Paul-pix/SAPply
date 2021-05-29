@@ -1,10 +1,17 @@
+<!--consegna-->
 <?php
     session_start();
 ?>
 <!DOCTYPE html>
 <html>
 
-<head></head>
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" lang="javascript" src="script.js"></script>
+
+</head>
 
 <body>
     <?php
@@ -17,9 +24,28 @@
                     $q1="select disponibile from zaino where codice='$cod'";
                     $disp=pg_query($dbconn,$q1);
                     if(pg_result($disp,null,0)=='sì'){
-                        echo "<h1> Lo zaino è ancora disponibile, impossibile consegnare</h1>";
-                        echo "<a href=index.php> Premi qui  </a>   per tornare alla panoramica</br>";
-                        echo "</br><a href=../home/index.php> Premi qui  </a>   per tornare alla selezione zaino";
+
+                        //INIZIO POP-UP 
+
+                        echo "<script>
+                        $(function(){
+                            $( \"#dialog\" ).dialog({
+                            autoOpen: false
+                            });
+                            
+                            $('#bottone').on(\"click\" , function() {
+                                $( \"#dialog\" ).dialog(\"open\");
+                            });
+                        });
+                        </script>";
+                        $var=$_SESSION['zaino'];
+                        echo "<div id=\"dialog\" title=\"Titolo del dialogo\">
+                            <h1>Premi per tornare alla pagina di Selezione Zaino</h1>
+                        </div>";
+                        echo "<button id=\"bottone\">premi</button> <!-- SPOSTA IL BOTTONE DOVE SEVE NEL BODY --->";                    
+                        
+                        //FINE POP-UP
+
                     }else{                                                                 
                     date_default_timezone_set("Europe/Rome");
                     $date = date('Y-m-d');

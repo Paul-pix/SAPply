@@ -1,5 +1,6 @@
 <?php
     session_start();
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +12,8 @@
     <link rel="icon" type="image/png" href="../logo/SAPply_logo_32x32.png" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" lang="javascript" src="../js/bootstrap.min.js">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" lang="javascript" src="script.js"></script>
     </script>
 </head>
 
@@ -83,7 +85,7 @@
              
              $conn=pg_connect("host=localhost port=5432 dbname=SAP user=postgres password=admin")
              or die('Could not connect: '. pg_last_error());
-             echo"<h5 >Presidi</h5>";
+             echo"<h5 >Presidi</h5>";                                                                                                   //PRESIDI
              echo "</table>";
              
              $cod=$_SESSION['zaino'];
@@ -96,14 +98,16 @@
              }
             echo "</table>";
             echo "</br></br>";
-             echo"<h5 >Fialario</h5>";
+             echo"<h5 >Fialario</h5>";                                                                                                  //FIALARIO
              $cod=$_SESSION['zaino'];
              $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
              echo "<table class='centro'>";
              echo "<tr><th>Elemento</th><th>Quantità</th><th>Scadenza</th></tr>";
              while($row=pg_fetch_array($queryRecords,null,PGSQL_ASSOC)){
-                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$row['scadenza']."</td></tr>";
+                $scad3=$row['scadenza'];
+                $scad4=date("d-m-Y", strtotime($scad3));
+                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$scad4."</td></tr>";
              }
              echo "</table>";
            ?>
