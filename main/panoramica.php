@@ -6,20 +6,22 @@
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Prelievo zaino</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="style.css"/>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="popup_style.css">
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" lang="javascript" src="script.js"></script>
 </head>
 
 <body class="text-center"> 
-    <div><img class="text-center" src="../logo/SAPply_logo_128x128.png"></div>
-    <div><button class="btn btn-primary">Prosegui</button></div>
+    
+    <div><img class="text-center reind_img" src="../logo/SAPply_logo_extended_283x128.png"></div>
+    </br>
+    
     
     <?php
             $dbconn=pg_connect("host=localhost port=5432 dbname=SAP user=postgres password=admin")
@@ -39,17 +41,14 @@
                             $( \"#dialog\" ).dialog({
                             autoOpen: open
                             });
-                            
-                            $('#bottone').on(\"click\" , function() {
-                                $( \"#dialog\" ).dialog(\"open\");
-                            });
                         });
                         </script>";
                         $var=$_SESSION['zaino'];
                         echo "<div id=\"dialog\" title=\"Operazione fallita!\">
-                            <h1>Lo zaino non può essere prelevato. Zaino non disponibile.</h1>
+                            <h5>Lo zaino non può essere prelevato.</h5>
+                            <h5>Zaino non disponibile.</h5>
+                            <div><a href=\"index.php\" role=\"button\" class=\"btn btn-primary btn-lg btnred \">Ritorna alla pagina dello zaino</a></div>
                         </div>";               
-                        echo "<button id=\"bottone\" class=\"btn btn-primary text-center\">Pop up</button>";
 
                         //FINE POP-UP
 
@@ -67,21 +66,18 @@
                      //INIZIO POP-UP 
 
                      echo "<script>
-                     $(function(){
-                         $( \"#dialog\" ).dialog({
-                         autoOpen: open
-                         });
-                         
-                         $('#bottone').on(\"click\" , function() {
-                             $( \"#dialog\" ).dialog(\"open\");
-                         });
-                     });
-                     </script>";
-                     $var=$_SESSION['zaino'];
-                     echo "<div id=\"dialog\" title=\"Operazione completata!\">
-                         <h1>Lo zaino è stato prelevato con successo.</h1>
-                     </div>";
-                     echo "<button id=\"bottone\" class=\"btn btn-primary text-center\">Pop up</button>";                    
+                        $(function(){
+                            $( \"#dialog\" ).dialog({
+                            autoOpen: open
+                            });
+                        });
+                        </script>";
+                        $var=$_SESSION['zaino'];
+                        echo "<div id=\"dialog\" title=\"Operazione completata!\">
+                            <h5>Lo zaino è stato prelevato.</h5>
+                            <h5>Ricordati di riconsegnare lo zaino alla fine del servizio.</h5>
+                            <div><a href=\"../home/index.php\" role=\"button\" class=\"btn btn-primary btn-lg btnred \">Ritorna alla scelta dello zaino</a></div>
+                        </div>";                     
                      
                      //FINE POP-UP
 

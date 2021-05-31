@@ -22,9 +22,7 @@
         <a href="../home/index.php" class="torna active">Indietro</a>
         <a href="#panoramica">Panoramica</a>
         <a href="#contenuto">Contenuto</a>
-        <a href="#preleva/consegna">Preleva - Consegna</a>
-
-
+        <a href="#preleva-consegna">Preleva - Consegna</a>
     </div>
 
     <div class="text-center">
@@ -61,6 +59,7 @@
              $queryDisponibile= pg_query($conn, $sql3) or die("error to fetch zaino data");
              $dataD=pg_result($queryDisponibile,null,0);
              echo "<b>Disponibile: </b> <a>$dataD</a>";
+             echo"</br>";
              echo"</br>";
             
              
@@ -115,7 +114,7 @@
 
         </section>
 
-        <section id="preleva/consegna" class="section text-center field">
+        <section id="preleva-consegna" class="section text-center field">
             <div class="center">
                 </br>
                 </br>
