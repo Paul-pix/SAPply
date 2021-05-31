@@ -26,5 +26,14 @@ function aggiornaFormPresidi(){
     
     return true;
 }
+function aggiungiFormFialario(){ 
+    var t=parseInt(document.aggFform2.quantita.value); 
+    if(isNaN(t)){                                           
+        alert("La quantità deve essere un numero");
+        return false;
+    }
+    
+    return true;
+}
 
 
