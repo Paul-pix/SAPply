@@ -88,7 +88,7 @@
              echo "</table>";
              
              $cod=$_SESSION['zaino'];
-             $sql=" SELECT elemento,quantità from presidi where codice='$cod' order by elemento";
+             $sql=" SELECT elemento,quantità from presidi where codice='$cod' and quantità > 0 order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
              echo "<table class='text-center'>";
              echo "<tr><th>Elemento</th><th>Quantità</th></tr>";
@@ -99,7 +99,7 @@
             echo "</br></br>";
              echo"<h5 >Fialario</h5>";                                                                                                  //FIALARIO
              $cod=$_SESSION['zaino'];
-             $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' order by elemento";
+             $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' and quantità>0 order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
              echo "<table class='centro'>";
              echo "<tr><th>Elemento</th><th>Quantità</th><th>Scadenza</th></tr>";

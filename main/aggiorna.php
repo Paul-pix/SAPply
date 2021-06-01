@@ -62,11 +62,10 @@
                             <h5>Lo zaino $codice ora contiene $quantità $elemPres.</h5>
                         </div>"; 
                     } 
- }  ?>  
+ }  ?>
 
                 <div class="row justify-content-center">
-                    <form action="" method="POST" name="aggFPresidi"
-                        onSubmit="return aggiornaFormPresidi()">
+                    <form action="" method="POST" name="aggFPresidi" onSubmit="return aggiornaFormPresidi()">
                         <div class="form-group form-control">
                             <select name="elemento" required>
                                 <option value="Abbassalingua">Abbassalingua</option>
@@ -111,7 +110,7 @@
              $conn=pg_connect("host=localhost port=5432 dbname=SAP user=postgres password=admin")
              or die('Could not connect: '. pg_last_error()); 
              $cod=$_SESSION['zaino'];
-             $sql=" SELECT elemento,quantità from presidi where codice='$cod' order by elemento";
+             $sql=" SELECT elemento,quantità from presidi where codice='$cod' and quantità>0 order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
             
              echo "<table class='text-center'>";
@@ -121,15 +120,15 @@
                   echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']."</td></tr>";
              }
              echo "</table>";
-            echo "</br></br>";?>            
-             </div>
-                <div>
+            echo "</br></br>";?>
+            </div>
+            <div>
     </section>
     <!-- Fialario-->
     <section id="fialario" class="section text-center" autofocus>
-            </br>
-            </br>
-            <?php  if(isset($_POST['update2'])) {          
+        </br>
+        </br>
+        <?php  if(isset($_POST['update2'])) {          
                        
                        $codice= $_SESSION["zaino"];
                        $elemPres2=$_POST['elemento'];                //salvo elemento nella variabile elemPres
@@ -202,87 +201,87 @@
                 }               
              }
             }
-?> 
-    <div class="row justify-content-center">
-        <form action="" method="POST" name="aggFform" onSubmit="return aggiornaFormFialario()">
-            <div class="form-group form-control">
-                <select name="elemento" required>
-                    <option value="Acido tranexamico 500mg/5ml">Acido tranexamico 500mg/5ml</option>
-                    <option value="Adrenalina">Adrenalina</option>
-                    <option value="Anexate">Anexate</option>
-                    <option value="Atropina">Atropina</option>
-                    <option value="Bentelan 1,5mg">Bentelan 1,5mg</option>
-                    <option value="Bentelan 4g">Bentelan 4g</option>
-                    <option value="Broncovaleas">Broncovaleas</option>
-                    <option value="Buscopan">Buscopan</option>
-                    <option value="Clonidina">Clonidina</option>
-                    <option value="Condarone">Condarone</option>
-                    <option value="Contramal">Contramal</option>
-                    <option value="Contramal 50mg/1ml">Contramal 50mg/1ml</option>
-                    <option value="Diclofenac">Diclofenac</option>
-                    <option value="Efedrina">Efedrina</option>
-                    <option value="Furosemide">Furosemide</option>
-                    <option value="Glucosio 33%">Glucosio 33%</option>
-                    <option value="Lidocaina">Lidocaina</option>
-                    <option value="Metadoxil 300mg">Metadoxil 300mg</option>
-                    <option value="Naloxone 0,4mg">Naloxone 0,4mg</option>
-                    <option value="Noradrenalina">Noradrenalina</option>
-                    <option value="Plasil">Plasil</option>
-                    <option value="Propofol">Propofol</option>
-                    <option value="Talofen">Talofen</option>
-                    <option value="Tefamin">Tefamin</option>
-                    <option value="Urbason 20mg">Urbason 20mg</option>
-                    <option value="Valium">Valium</option>
+?>
+        <div class="row justify-content-center">
+            <form action="" method="POST" name="aggFform" onSubmit="return aggiornaFormFialario()">
+                <div class="form-group form-control">
+                    <select name="elemento" required>
+                        <option value="Acido tranexamico 500mg/5ml">Acido tranexamico 500mg/5ml</option>
+                        <option value="Adrenalina">Adrenalina</option>
+                        <option value="Anexate">Anexate</option>
+                        <option value="Atropina">Atropina</option>
+                        <option value="Bentelan 1,5mg">Bentelan 1,5mg</option>
+                        <option value="Bentelan 4g">Bentelan 4g</option>
+                        <option value="Broncovaleas">Broncovaleas</option>
+                        <option value="Buscopan">Buscopan</option>
+                        <option value="Clonidina">Clonidina</option>
+                        <option value="Condarone">Condarone</option>
+                        <option value="Contramal">Contramal</option>
+                        <option value="Contramal 50mg/1ml">Contramal 50mg/1ml</option>
+                        <option value="Diclofenac">Diclofenac</option>
+                        <option value="Efedrina">Efedrina</option>
+                        <option value="Furosemide">Furosemide</option>
+                        <option value="Glucosio 33%">Glucosio 33%</option>
+                        <option value="Lidocaina">Lidocaina</option>
+                        <option value="Metadoxil 300mg">Metadoxil 300mg</option>
+                        <option value="Naloxone 0,4mg">Naloxone 0,4mg</option>
+                        <option value="Noradrenalina">Noradrenalina</option>
+                        <option value="Plasil">Plasil</option>
+                        <option value="Propofol">Propofol</option>
+                        <option value="Talofen">Talofen</option>
+                        <option value="Tefamin">Tefamin</option>
+                        <option value="Urbason 20mg">Urbason 20mg</option>
+                        <option value="Valium">Valium</option>
 
-                </select>
-                <input type="text" name='quantita' placeholder="Quantità" required>
-                <input type="date" name='scadenza' placeholder="Scadenza" required>
-                <button type="submit" name="update2" class="btn btn-primary btn-sm btnred">Update</button>
-</div>
-</form> <!-- FORM AGGIUNGI-->
-        <form action="" method="POST" name="aggFform2" onSubmit="return aggiungiFormFialario()">
-            <div class="form-group form-control">
-                <select name="elemento3" required>
-                    <option value="Acido tranexamico 500mg/5ml">Acido tranexamico 500mg/5ml</option>
-                    <option value="Adrenalina">Adrenalina</option>
-                    <option value="Anexate">Anexate</option>
-                    <option value="Atropina">Atropina</option>
-                    <option value="Bentelan 1,5mg">Bentelan 1,5mg</option>
-                    <option value="Bentelan 4g">Bentelan 4g</option>
-                    <option value="Broncovaleas">Broncovaleas</option>
-                    <option value="Buscopan">Buscopan</option>
-                    <option value="Clonidina">Clonidina</option>
-                    <option value="Condarone">Condarone</option>
-                    <option value="Contramal">Contramal</option>
-                    <option value="Contramal 50mg/1ml">Contramal 50mg/1ml</option>
-                    <option value="Diclofenac">Diclofenac</option>
-                    <option value="Efedrina">Efedrina</option>
-                    <option value="Furosemide">Furosemide</option>
-                    <option value="Glucosio 33%">Glucosio 33%</option>
-                    <option value="Lidocaina">Lidocaina</option>
-                    <option value="Metadoxil 300mg">Metadoxil 300mg</option>
-                    <option value="Naloxone 0,4mg">Naloxone 0,4mg</option>
-                    <option value="Noradrenalina">Noradrenalina</option>
-                    <option value="Plasil">Plasil</option>
-                    <option value="Propofol">Propofol</option>
-                    <option value="Talofen">Talofen</option>
-                    <option value="Tefamin">Tefamin</option>
-                    <option value="Urbason 20mg">Urbason 20mg</option>
-                    <option value="Valium">Valium</option>
+                    </select>
+                    <input type="text" name='quantita' placeholder="Quantità" required>
+                    <input type="date" name='scadenza' placeholder="Scadenza" required>
+                    <button type="submit" name="update2" class="btn btn-primary btn-sm btnred">Update</button>
+                </div>
+            </form> <!-- FORM AGGIUNGI-->
+            <form action="" method="POST" name="aggFform2" onSubmit="return aggiungiFormFialario()">
+                <div class="form-group form-control">
+                    <select name="elemento3" required>
+                        <option value="Acido tranexamico 500mg/5ml">Acido tranexamico 500mg/5ml</option>
+                        <option value="Adrenalina">Adrenalina</option>
+                        <option value="Anexate">Anexate</option>
+                        <option value="Atropina">Atropina</option>
+                        <option value="Bentelan 1,5mg">Bentelan 1,5mg</option>
+                        <option value="Bentelan 4g">Bentelan 4g</option>
+                        <option value="Broncovaleas">Broncovaleas</option>
+                        <option value="Buscopan">Buscopan</option>
+                        <option value="Clonidina">Clonidina</option>
+                        <option value="Condarone">Condarone</option>
+                        <option value="Contramal">Contramal</option>
+                        <option value="Contramal 50mg/1ml">Contramal 50mg/1ml</option>
+                        <option value="Diclofenac">Diclofenac</option>
+                        <option value="Efedrina">Efedrina</option>
+                        <option value="Furosemide">Furosemide</option>
+                        <option value="Glucosio 33%">Glucosio 33%</option>
+                        <option value="Lidocaina">Lidocaina</option>
+                        <option value="Metadoxil 300mg">Metadoxil 300mg</option>
+                        <option value="Naloxone 0,4mg">Naloxone 0,4mg</option>
+                        <option value="Noradrenalina">Noradrenalina</option>
+                        <option value="Plasil">Plasil</option>
+                        <option value="Propofol">Propofol</option>
+                        <option value="Talofen">Talofen</option>
+                        <option value="Tefamin">Tefamin</option>
+                        <option value="Urbason 20mg">Urbason 20mg</option>
+                        <option value="Valium">Valium</option>
 
-                </select>
-                <input type="text" name='quantita3' placeholder="Quantità" required>
-                <input type="date" name='scadenza3' placeholder="Scadenza" required>
-                <button type="submit" name="aggiorna" class="btn btn-primary btn-sm btnred">Aggiungi nuovo</button>
-                    </form>
-    </div>
-                    </div>
-   
+                    </select>
+                    <input type="text" name='quantita3' placeholder="Quantità" required>
+                    <input type="date" name='scadenza3' placeholder="Scadenza" required>
+                    <button type="submit" name="aggiorna" class="btn btn-primary btn-sm btnred">Aggiungi nuovo</button>
+            </form>
+        </div>
+        </div>
 
-    <?php
+
+        <?php
              echo"<h5 >Fialario</h5>";
              $cod=$_SESSION['zaino'];
-             $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' order by elemento";
+             $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' and quantità>0 order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
              echo "<table class='centro'>";
              echo "<tr><th>Elemento</th><th>Quantità</th><th>Scadenza</th><th>Scaduto</th></tr></thead>";
@@ -311,6 +310,6 @@
              echo "</table>";
 
            ?>
-    </div>
+        </div>
     </section>
 </body>
