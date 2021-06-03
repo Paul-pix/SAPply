@@ -10,8 +10,8 @@ function prelevaForm(){
 
 function aggiornaFormFialario(){ 
     var t=parseInt(document.aggFform.quantita.value); 
-    if(isNaN(t)){                                           
-        alert("La quantità deve essere un numero");
+    if(isNaN(t)||t<0){                                           
+        alert("La quantità deve essere un numero positivo o zero");
         return false;
     }
     
@@ -19,8 +19,8 @@ function aggiornaFormFialario(){
 }
 function aggiornaFormPresidi(){ 
     var s=parseInt(document.aggFPresidi.quantita.value); 
-    if(isNaN(s)){                                           
-        alert("La quantità deve essere un numero");
+    if(isNaN(s)||s<0){                                           
+        alert("La quantità deve essere un numero positivo o zero");
         return false;
     }
     
@@ -28,8 +28,8 @@ function aggiornaFormPresidi(){
 }
 function aggiungiFormFialario(){ 
     var t=parseInt(document.aggFform2.quantita.value); 
-    if(isNaN(t)){                                           
-        alert("La quantità deve essere un numero");
+    if(isNaN(t)||t<0){                                           
+        alert("La quantità deve essere un numero positivo o zero");
         return false;
     }
     

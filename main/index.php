@@ -97,18 +97,36 @@
              }
             echo "</table>";
             echo "</br></br>";
-             echo"<h5 >Fialario</h5>";                                                                                                  //FIALARIO
-             $cod=$_SESSION['zaino'];
-             $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' and quantità>0 order by elemento";
-             $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
-             echo "<table class='centro'>";
-             echo "<tr><th>Elemento</th><th>Quantità</th><th>Scadenza</th></tr>";
-             while($row=pg_fetch_array($queryRecords,null,PGSQL_ASSOC)){
-                $scad3=$row['scadenza'];
-                $scad4=date("d-m-Y", strtotime($scad3));
-                  echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$scad4."</td></tr>";
-             }
-             echo "</table>";
+            echo"<h5 >Fialario</h5>";
+            $cod=$_SESSION['zaino'];
+            $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' and quantità>0 order by elemento";
+            $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
+            echo "<table class='centro'>";
+            echo "<tr><th>Elemento</th><th>Quantità</th><th>Scadenza</th><th>Scaduto</th></tr></thead>";
+            while($row=pg_fetch_array($queryRecords,null,PGSQL_ASSOC)){ 
+                $el=$row['elemento'];
+                $scad1=$row['scadenza'];
+                $scad2=date("d-m-Y", strtotime($scad1));
+               if(date('Y-m-d') >= date('Y-m-d', strtotime($scad1))){
+                  
+                   $scaduto = "sì";
+                   echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$scad2."</td><td>".$scaduto."</td></tr>";
+               }   
+           }
+           $sql2=" SELECT elemento,quantità,scadenza from inventario where codice='$cod'  and quantità>0  order by elemento";
+            $queryRecords2 = pg_query($conn, $sql2) or die("error to fetch inventario data");
+           while($row=pg_fetch_array($queryRecords2,null,PGSQL_ASSOC)){ 
+               $el=$row['elemento'];
+               $scad1=$row['scadenza'];
+               $scad2=date("d-m-Y", strtotime($scad1));
+              if(date('Y-m-d') < date('Y-m-d', strtotime($scad1))){
+                 $scaduto="no";
+                 echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$scad2."</td><td>".$scaduto."</td></tr>";
+                 
+            }
+           }
+            echo "</table>";
+             
            ?>
 
 

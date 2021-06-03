@@ -37,7 +37,7 @@
             <div>
                 <!-- Presidi-->
                 <?php
-                $message="";
+               //AGGIORNA PRESIDI
             $dbconn=pg_connect("host=localhost port=5432 dbname=SAP user=postgres password=admin")    
                              or die('Could not connect: '. pg_last_error());
                 if(isset($_POST['update'])) {          
@@ -63,7 +63,7 @@
                         </div>"; 
                     } 
  }  ?>
-
+            <!-- FORM PRESIDI -->
                 <div class="row justify-content-center">
                     <form action="" method="POST" name="aggFPresidi" onSubmit="return aggiornaFormPresidi()">
                         <div class="form-group form-control">
@@ -104,13 +104,14 @@
                     </form>
 
                 </div>
-                <?php
+                <!--TABELLA PRESIDI-->
+                <?php 
              echo"<h5 >Presidi</h5>";
              echo "</table>";
              $conn=pg_connect("host=localhost port=5432 dbname=SAP user=postgres password=admin")
              or die('Could not connect: '. pg_last_error()); 
              $cod=$_SESSION['zaino'];
-             $sql=" SELECT elemento,quantità from presidi where codice='$cod' and quantità>0 order by elemento";
+             $sql=" SELECT elemento,quantità from presidi where codice='$cod' order by elemento";
              $queryRecords = pg_query($conn, $sql) or die("error to fetch inventario data");
             
              echo "<table class='text-center'>";
@@ -124,10 +125,11 @@
             </div>
             <div>
     </section>
-    <!-- Fialario-->
+    <!-- ZONA FIALARIO-->
     <section id="fialario" class="section text-center" autofocus>
         </br>
         </br>
+        <!-- FUNZIONE AGGIORNA FIALARIO -->
         <?php  if(isset($_POST['update2'])) {          
                        
                        $codice= $_SESSION["zaino"];
@@ -155,7 +157,7 @@
                     } 
                        } 
 
-                       //FUNZIONE AGGIUNGI
+                       //FUNZIONE AGGIUNGI FIALARIO
 
             $dbconn=pg_connect("host=localhost port=5432 dbname=SAP user=postgres password=admin")
             or die('Could not connect: '. pg_last_error());
@@ -175,7 +177,7 @@
                     </script>";
                    
                     $scadenza1=date("d-m-Y", strtotime($scade));
-                    echo "<div id=\"dialog\" title=\"Operazione completata!\">
+                    echo "<div id=\"dialog\" title=\"Operazione rifiutata!\">
                         <h5>Lo zaino $codice contiene già $nomeEl, con scadenza $scadenza1.</h5>
                     </div>";
                 }
@@ -201,7 +203,7 @@
                 }               
              }
             }
-?>
+?>      <!-- FORM AGGIORNA-->
         <div class="row justify-content-center">
             <form action="" method="POST" name="aggFform" onSubmit="return aggiornaFormFialario()">
                 <div class="form-group form-control">
@@ -277,8 +279,8 @@
         </div>
         </div>
 
-
-        <?php
+                    <!--TABELLA FIALARIO -->
+        <?php  
              echo"<h5 >Fialario</h5>";
              $cod=$_SESSION['zaino'];
              $sql=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' and quantità>0 order by elemento";
@@ -289,13 +291,13 @@
                  $el=$row['elemento'];
                  $scad1=$row['scadenza'];
                  $scad2=date("d-m-Y", strtotime($scad1));
-                if(date('Y-m-d') > date('Y-m-d', strtotime($scad1))){
+                if(date('Y-m-d') >= date('Y-m-d', strtotime($scad1))){
                    
                     $scaduto = "sì";
                     echo "<tr><td>". $row['elemento']. "</td><td>". $row['quantità']. "</td><td>".$scad2."</td><td>".$scaduto."</td></tr>";
                 }   
             }
-            $sql2=" SELECT elemento,quantità,scadenza from inventario where codice='$cod' order by elemento";
+            $sql2=" SELECT elemento,quantità,scadenza from inventario where codice='$cod'  and quantità>0  order by elemento";
              $queryRecords2 = pg_query($conn, $sql2) or die("error to fetch inventario data");
             while($row=pg_fetch_array($queryRecords2,null,PGSQL_ASSOC)){ 
                 $el=$row['elemento'];
